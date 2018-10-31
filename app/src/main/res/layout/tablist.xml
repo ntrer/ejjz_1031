@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/quit_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/x"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_6"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商铺列表"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="@dimen/dp_5"
+        android:textColor="@color/md_black_1000"
+        />
+
+    <View style="@style/activity_register_v_horizontal_divider" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_sign2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

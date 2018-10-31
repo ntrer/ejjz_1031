@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@android:color/white"
+        android:theme="@style/ToolBarStyle"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="日常订金"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            />
+    </android.support.v7.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--姓名-->
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/activity_customer_create_tv_style"
+                        android:text="@string/customer_name" />
+
+                    <com.shushang.aishangjia.ui.SLEditTextView
+                        android:id="@+id/et_customer_name"
+                        style="@style/activity_customer_create_et_style"
+                        android:drawablePadding="@dimen/dp_48"
+                        android:hint="@string/must_fill_in"
+                        android:imeOptions="actionNext"
+                        android:maxLength="25" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:text="@string/must_fill_in_sign"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/sp_14" />
+
+            </RelativeLayout>
+
+            <View style="@style/activity_register_v_horizontal_divider" />
+            <!--手机号-->
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/activity_customer_create_tv_style"
+                        android:text="@string/customer_mobile" />
+
+                    <com.shushang.aishangjia.ui.SLEditTextView
+                        android:id="@+id/et_customer_mobile"
+                        style="@style/activity_customer_create_et_style"
+                        android:drawablePadding="@dimen/dp_48"
+                        android:hint="@string/must_fill_in"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="25" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:text="@string/must_fill_in_sign"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/sp_14" />
+
+            </RelativeLayout>
+
+            <View style="@style/activity_register_v_horizontal_divider" />
+
+            <!--小区名称-->
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/activity_customer_create_tv_style"
+                        android:text="@string/money" />
+
+                    <com.shushang.aishangjia.ui.SLEditTextView
+                        android:id="@+id/money"
+                        style="@style/activity_customer_create_et_style"
+                        android:drawablePadding="@dimen/dp_48"
+                        android:hint="@string/must_fill_in"
+                        android:imeOptions="actionNext"
+                        android:maxLength="25"
+                        android:inputType="number|numberDecimal"
+                        />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:text="@string/must_fill_in_sign"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/sp_14" />
+
+            </RelativeLayout>
+
+            <View style="@style/activity_register_v_horizontal_divider" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/activity_register_btn_submit"
+                android:layout_marginBottom="@dimen/dp_25" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

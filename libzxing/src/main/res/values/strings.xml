@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">e见家装</string>
+    <string name="shop_info">商家信息</string>
+    <string name="user_info">个人信息</string>
+    <string name="confirm">确定</string>
+    <string name="sending_request">发送请求</string>
+    <string name="cancel">取消</string>
+    <string name="loading">加载中</string>
+    <string name="friend_request_send_ok">请求发送成功</string>
+    <string name="modify_passowrd_ok">修改密码成功</string>
+    <string name="loadingData">加载数据中...</string>
+    <string name="getDataBase">同步数据库中...</string>
+</resources>

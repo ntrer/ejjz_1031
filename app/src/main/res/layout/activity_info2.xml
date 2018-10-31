@@ -1,0 +1,55 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.shushang.aishangjia.activity.CityActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@android:color/white"
+        android:theme="@style/ToolBarStyle"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/now_beizhu"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            />
+    </android.support.v7.widget.Toolbar>
+
+
+    <EditText
+        android:id="@+id/add_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:padding="@dimen/dp_6"
+        android:enabled="true"
+        android:gravity="top"
+        android:hint="请输入..."
+        android:inputType="textMultiLine"
+        android:minLines="8"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:background="@drawable/bg_edit_edit"
+        >
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_submit"
+        style="@style/activity_register_btn_submit"
+        android:layout_marginBottom="@dimen/dp_25"/>
+
+
+</LinearLayout>

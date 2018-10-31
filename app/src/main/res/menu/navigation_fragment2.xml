@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_fragment_zero"
+        android:icon="@drawable/bottom_tab0_select"
+        android:title="签到统计" />
+
+    <item
+    android:id="@+id/navigation_fragment_one"
+    android:icon="@drawable/bottom_tab1_select"
+    android:title="新客统计" />
+
+    <item
+    android:id="@+id/navigation_fragment_two"
+    android:icon="@drawable/bottom_tab2_select"
+    android:title="订金" />
+
+    <item
+        android:id="@+id/navigation_fragment_three"
+        android:icon="@drawable/bottom_tab4_select"
+        android:title="应用" />
+
+    <item
+    android:id="@+id/navigation_fragment_four"
+    android:icon="@drawable/bottom_tab3_select"
+    android:title="我的" />
+
+<!--<item-->
+        <!--android:id="@+id/navigation_fragment_zero"-->
+        <!--android:icon="@drawable/bottom_tab1_select"-->
+        <!--android:title="CRM" />-->
+
+
+    <!--<item-->
+    <!--android:id="@+id/navigation_fragment_one"-->
+    <!--android:icon="@drawable/bottom_tab2_select"-->
+    <!--android:title="订金" />-->
+
+    <!--<item-->
+        <!--android:id="@+id/navigation_fragment_two"-->
+        <!--android:icon="@drawable/bottom_tab2_select"-->
+        <!--android:title="销售管理" />-->
+    <!--<item-->
+        <!--android:id="@+id/navigation_fragment_three"-->
+        <!--android:icon="@drawable/bottom_tab2_select"-->
+        <!--android:title="进销存" />-->
+    <!--<item-->
+        <!--android:id="@+id/navigation_fragment_four"-->
+        <!--android:icon="@drawable/bottom_tab2_select"-->
+        <!--android:title="我的" />-->
+
+</menu>

@@ -1,0 +1,25 @@
+<LinearLayout
+    android:id="@+id/ll_actor"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/dp_40"
+    android:paddingTop="@dimen/dp_9"
+    android:layout_marginLeft="@dimen/dp_25"
+    android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/tab_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="吴彦祖"
+        android:gravity="center"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@drawable/text_select"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true"
+        android:ellipsize="end"
+        />
+
+</LinearLayout>
