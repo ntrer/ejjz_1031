@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.shushang.aishangjia.R;
 import com.shushang.aishangjia.activity.AppPeopleActivity;
 import com.shushang.aishangjia.activity.DailyOrderActivity;
+import com.shushang.aishangjia.activity.GoodsActivity;
 import com.shushang.aishangjia.activity.LoginActivity2;
 import com.shushang.aishangjia.activity.ProActivityActivity2;
 import com.shushang.aishangjia.activity.ResetPwdActivity;
@@ -120,11 +121,20 @@ public class MyFragment2 extends BaseFragment implements View.OnClickListener,On
                 .setPressedTranslationZ(10)
                 .setTag(5)
                 .build();
+
+        FabAttributes email4 = new FabAttributes.Builder()
+                .setBackgroundTint(Color.parseColor("#2096F3"))
+                .setSrc(getResources().getDrawable(R.mipmap.dingdan))
+                .setFabSize(FloatingActionButton.SIZE_MINI)
+                .setPressedTranslationZ(10)
+                .setTag(6)
+                .build();
+
         if(resourceName!=null&&resourceName.equals("1116")){
-            fabTop.addFab(collection,xiansuo,email,email2,email3);
+            fabTop.addFab(collection,xiansuo,email,email2,email3,email4);
         }
         else {
-            fabTop.addFab(collection,email,email2,email3);
+            fabTop.addFab(collection,email,email2,email3,email4);
         }
         fabTop.setAnimationManager(new FabAlphaAnimate(fabTop));
         fabTop.setFabClickListener(this);
@@ -305,6 +315,15 @@ public class MyFragment2 extends BaseFragment implements View.OnClickListener,On
                 }
             },1000);
             startActivityForResult(new Intent(getActivity(), DailyOrderActivity.class),REQUEST_CODE_DAILY);
+        }
+        else if (tag.equals(6)){
+            mFabHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    fabTop.closeAnimate();
+                }
+            },1000);
+            startActivityForResult(new Intent(getActivity(), GoodsActivity.class),REQUEST_CODE_DAILY);
         }
     }
 

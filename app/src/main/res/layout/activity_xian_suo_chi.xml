@@ -25,21 +25,14 @@
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/shaixuan"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp_14"
-            />
 
         <ImageView
             android:id="@+id/shaixuan"
-            android:layout_width="@dimen/dp_28"
-            android:layout_height="@dimen/dp_28"
-            android:background="@mipmap/shaixuan"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
             android:layout_gravity="right"
+            android:background="@mipmap/shaixuan"
+            android:layout_marginRight="@dimen/dp_10"
             />
 
     </android.support.v7.widget.Toolbar>
@@ -62,6 +55,7 @@
         app:ddmenuBackgroundColor="@color/white"
         app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
         />
+
 
 
 </RelativeLayout>

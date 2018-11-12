@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:id="@+id/dingjin"
+        android:text="河南省"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"/>
+
+    <cn.refactor.library.SmoothCheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp_10"
+        app:duration="1"
+        app:color_tick="@color/color_w"
+        app:color_checked="@color/colorPrimary"
+        app:color_unchecked_stroke="@color/line"
+        />
+
+
+    <View
+        android:layout_below="@+id/dingjin"
+        style="@style/activity_register_v_horizontal_divider"
+        />
+
+</RelativeLayout>

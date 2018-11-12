@@ -8,8 +8,8 @@ android {
         applicationId "com.shushang.aishangjia"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 8
-        versionName "1.1.0"
+        versionCode 10
+        versionName "1.1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -101,5 +101,6 @@ dependencies {
     compile 'com.hjq:xxpermissions:5.2'
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
     compile 'q.rorbin:badgeview:1.1.3'
-
+    compile 'com.github.Othershe:NiceImageView:1.0.1'
+    compile project(':library')
 }

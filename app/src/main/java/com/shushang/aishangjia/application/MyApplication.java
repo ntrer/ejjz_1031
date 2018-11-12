@@ -49,7 +49,7 @@ public class MyApplication extends Application {
         Bugly.init(getApplicationContext(), "a0626d9293", true);
 
         //测试
-//        Bugly.init(getApplicationContext(), "22095be631", false);
+//        Bugly.init(getApplicationContext(), "22095be631", true);
 
 //        热更新
 //        Bugly.init(getApplicationContext(), "2065c1323c", true);

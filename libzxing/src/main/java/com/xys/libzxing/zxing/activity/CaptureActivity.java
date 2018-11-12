@@ -510,9 +510,11 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
      * the results.
      *
      * @param rawResult The contents of the barcode.
+     *
      * @param bundle    The extras
      */
     public void handleDecode(Result rawResult, Bundle bundle) {
+        try {
         inactivityTimer.onActivity();
         beepManager.playBeepSoundAndVibrate();
         if (handler != null) {
@@ -992,7 +994,10 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
             }
         }
-
+        }
+         catch (Exception e){
+            Toast.makeText(this, ""+e.toString(), Toast.LENGTH_SHORT).show();
+        }
 //        Intent resultIntent = new Intent();
 //        bundle.putInt("width", mCropRect.width());
 //        bundle.putInt("height", mCropRect.height());

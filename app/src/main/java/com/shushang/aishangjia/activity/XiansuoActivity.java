@@ -30,6 +30,7 @@ import com.shushang.aishangjia.ui.DecorateProgressDialog;
 import com.shushang.aishangjia.ui.DecorateProgressDialog2;
 import com.shushang.aishangjia.ui.ExtAlertDialog;
 import com.shushang.aishangjia.ui.GenderDialog;
+import com.shushang.aishangjia.ui.dialog.ActionSheetDialog;
 import com.shushang.aishangjia.utils.Json.JSONUtil;
 import com.shushang.aishangjia.utils.OkhttpUtils.CallBackUtil;
 import com.shushang.aishangjia.utils.OkhttpUtils.OkhttpUtil;
@@ -97,7 +98,6 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
         mTvSource= (TextView) findViewById(R.id.tv_source);
         mXiansuo = (TextView) findViewById(R.id.et_decorate_style);
         mNextTime= (TextView) findViewById(R.id.next_time);
-        mBiezhu= (TextView) findViewById(R.id.now_beizhu);
         mXiansuoThink= (TextView) findViewById(R.id.et_xiansuo_think);
         mEtXiaoQu= (EditText) findViewById(R.id.et_customer_xiaoqu);
         mllSource= (LinearLayout) findViewById(R.id.ll_source);
@@ -120,14 +120,6 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
         mllSource.setOnClickListener(this);
         mllThink.setOnClickListener(this);
         mButton.setOnClickListener(this);
-        mGenderDialog.setListener(new GenderDialog.OnGenderDialogListener() {
-            @Override
-            public void onGenderDialogClick(String itemName) {
-                mTvCustomerGender.setText(itemName);
-                mEtCustomerName.clearFocus();
-                mEtCustomerMobile.clearFocus();
-            }
-        });
 
         mDecorateProgressDialog.setListener(new DecorateProgressDialog.OnDecorateProgressDialogListener() {
             @Override
@@ -207,12 +199,6 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
         });
 
 
-        mBiezhu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivityForResult(new Intent(XiansuoActivity.this,InfoActivity2.class),REQUEST_BEIZHU_ACTIVITY);
-            }
-        });
         Calendar c = Calendar.getInstance();//
         now_year = c.get(Calendar.YEAR); // 获取当前年份
         now_mounth = c.get(Calendar.MONTH) + 1;// 获取当前月份
@@ -231,16 +217,13 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_customer_gender://客户性别
-                if (!mGenderDialog.isShowing())
-                    mGenderDialog.show();
+                   getSex();
                 break;
             case R.id.ll_source://客户来源
-                if (!mDecorateProgressDialog.isShowing())
-                    mDecorateProgressDialog.show();
+               getSource();
                 break;
             case R.id.ll_thinkbuy://客户来源
-                if (!mDecorateProgressDialog2.isShowing())
-                    mDecorateProgressDialog2.show();
+              getCustomeIntent();
                 break;
             case R.id.tv_customer_address:
                 startActivityForResult(new Intent(this, CityActivity.class), REQUEST_CODE_CITY);
@@ -255,26 +238,195 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
                }
                 xiaoqu=mEtXiaoQu.getText().toString().replace(" ", "");
                 xiansuo=mXiansuo.getText().toString().replace(" ", "");
-                info=mBiezhu.getText().toString().replace(" ", "");
+
                 nowTime=mTvIntentionToPurchaseProduct.getText().toString();
                 nextTime=mNextTime.getText().toString();
-                   if(username.equals("")||phone.equals("")||sex.equals("")||xiaoqu.equals("")||nowTime.equals("")||nextTime.equals("")||source.equals("")||xiansuo.equals("")||info.equals("")||thinkbuy.equals("")){
-                       Toast.makeText(this, "必填项不能为空", Toast.LENGTH_SHORT).show();
-                   }
-                   else if(phone.length()>11||!isMobileNO(phone)){
-                       Toast.makeText(this, "手机号格式不对", Toast.LENGTH_SHORT).show();
-                   }
-                   else {
-                       mRequestDialog.show();
-                       submit(username, phone, sex, xiaoqu,xiansuo,info,thinkbuy,nowTime,nextTime,source);
-                   }
+                try {
+                    if(username.equals("")||phone.equals("")||sex.equals("")||xiaoqu.equals("")||nowTime.equals("")||nextTime.equals("")||source.equals("")||xiansuo.equals("")||thinkbuy.equals("")){
+                        Toast.makeText(this, "必填项不能为空", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(phone.length()>11||!isMobileNO(phone)){
+                        Toast.makeText(this, "手机号格式不对", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        mRequestDialog.show();
+                        submit(username, phone, sex, xiaoqu,xiansuo,thinkbuy,nowTime,nextTime,source);
+                    }
+                }
+                catch (Exception e){
+                    ToastUtils.showLong(e.toString());
+                }
 
                 break;
         }
     }
 
+    private void getCustomeIntent() {
+        new ActionSheetDialog(XiansuoActivity.this)
+                .builder()
+                .setCancelable(false)
+                .setCanceledOnTouchOutside(true)
+                .addSheetItem("未知", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mXiansuoThink.setText("");
+                                mXiansuoThink.setText("未知");
+                                thinkbuy="1";
+                            }
+                        })
+                .addSheetItem("无意向", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mXiansuoThink.setText("");
+                                mXiansuoThink.setText("无意向");
+                                thinkbuy="2";
+                            }
+                        })
+                .addSheetItem("有需求暂无意向", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mXiansuoThink.setText("");
+                                mXiansuoThink.setText("有需求暂无意向");
+                                thinkbuy="3";
+                            }
+                        })
+                .addSheetItem("有意向，需考虑竞品", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mXiansuoThink.setText("");
+                                mXiansuoThink.setText("有意向，需考虑竞品");
+                                thinkbuy="4";
+                            }
+                        })
+                .addSheetItem("有意向，需考虑价格", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mXiansuoThink.setText("");
+                                mXiansuoThink.setText("有意向，需考虑价格");
+                                thinkbuy="5";
+                            }
+                        })
+                .addSheetItem("非常有意向，考虑成交", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mXiansuoThink.setText("");
+                                mXiansuoThink.setText("非常有意向，考虑成交");
+                                thinkbuy="6";
+                            }
+                        })
+                .show();
+    }
 
-    public void submit(String username, String phone, String sex,String xiaoqu,String xiansuo,String info,String thinkbuy,String nowTime,String nextTime,String source) {
+    private void getSource() {
+        new ActionSheetDialog(XiansuoActivity.this)
+                .builder()
+                .setCancelable(false)
+                .setCanceledOnTouchOutside(true)
+                .addSheetItem("客户介绍", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvSource.setText("");
+                                mTvSource.setText("客户介绍");
+                                source="2";
+                            }
+                        })
+                .addSheetItem("广告", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvSource.setText("");
+                                mTvSource.setText("广告");
+                                source="3";
+                            }
+                        })
+                .addSheetItem("销售拜访", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvSource.setText("");
+                                mTvSource.setText("销售拜访");
+                                source="4";
+                            }
+                        })
+                .addSheetItem("电话", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvSource.setText("");
+                                mTvSource.setText("电话");
+                                source="5";
+                            }
+                        })
+                .addSheetItem("自然进店", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvSource.setText("");
+                                mTvSource.setText("电话");
+                                source="6";
+                            }
+                        })
+                .addSheetItem("网上宣传", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvSource.setText("");
+                                mTvSource.setText("网上宣传");
+                                source="7";
+                            }
+                        })
+                .addSheetItem("朋友圈宣传", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvSource.setText("");
+                                mTvSource.setText("朋友圈宣传");
+                                source="8";
+                            }
+                        })
+                .addSheetItem("其他", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvSource.setText("");
+                                mTvSource.setText("其他");
+                                source="9";
+                            }
+                        })
+                .show();
+    }
+
+    private void getSex() {
+        new ActionSheetDialog(XiansuoActivity.this)
+                .builder()
+                .setCancelable(false)
+                .setCanceledOnTouchOutside(true)
+                .addSheetItem("男", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvCustomerGender.setText("男");
+                            }
+                        })
+                .addSheetItem("女", ActionSheetDialog.SheetItemColor.Blue,
+                        new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                mTvCustomerGender.setText("女");
+                            }
+                        })
+                .show();
+    }
+
+
+    public void submit(String username, String phone, String sex,String xiaoqu,String xiansuo,String thinkbuy,String nowTime,String nextTime,String source) {
         String url =  BaseUrl.BASE_URL + "phoneApi/clueController.do?method=saveClue";
         HashMap<String, String> paramsMap = new HashMap<>();
         paramsMap.put("token_id", token_id);
@@ -284,7 +436,6 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
         paramsMap.put("telephone", phone);
         paramsMap.put("sex", sex);
         paramsMap.put("info", xiansuo);
-        paramsMap.put("nowBeizhu", info);
         paramsMap.put("nowTime", nowTime);
         paramsMap.put("nextTime", nextTime);
         paramsMap.put("source", source);
@@ -307,6 +458,7 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
                             mRequestDialog.dismiss();
                         }
                         Toast.makeText(XiansuoActivity.this, "成功", Toast.LENGTH_SHORT).show();
+                        PreferencesUtils.putString(getApplicationContext(),"info",null);
                         mEtCustomerName.setText("");
                         mEtCustomerMobile.setText("");
                         mXiansuo.setText("");
@@ -314,7 +466,7 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
                         mTvCustomerGender.setText("");
                         mTvIntentionToPurchaseProduct.setText("");
                         mNextTime.setText("");
-                        mBiezhu.setText("");
+//                        mBiezhu.setText("");
                         mXiansuoThink.setText("");
                         finish();
                     }
@@ -359,15 +511,6 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
                 info= PreferencesUtils.getString(getApplicationContext(),"info");
                 mXiansuo.setText(info);
             }
-        } else if (requestCode == REQUEST_BEIZHU_ACTIVITY) {
-            if (PreferencesUtils.getString(XiansuoActivity.this, "beizhu")==null) {
-                mBiezhu.setText("");
-            }
-            else {
-                mBiezhu.setText("");
-                info= PreferencesUtils.getString(getApplicationContext(),"beizhu");
-                mBiezhu.setText(info);
-            }
         }
     }
 
@@ -386,13 +529,13 @@ public class XiansuoActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
         select_year=year;
-        select_mounth=monthOfYear+1;
+        select_mounth=monthOfYear;
         select_day=dayOfMonth;
         if(select_year<now_year){
-            ToastUtils.showLong("请选择当前时间以后的日期");
+            ToastUtils.showLong("请选择当前时间以后的年份");
         }
-        else if(select_mounth<now_mounth){
-            ToastUtils.showLong("请选择当前时间以后的日期");
+        else if(select_year==now_year&&select_mounth<now_mounth-1){
+            ToastUtils.showLong("请选择当前时间以后的月份");
         }
         else if(select_mounth==now_mounth&&select_day<now_day){
             ToastUtils.showLong("请选择当前时间以后的日期");

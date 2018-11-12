@@ -68,7 +68,7 @@ public class ListDropDownAdapter extends BaseAdapter {
         viewHolder.mText.setText(list.get(position));
         if (checkItemPosition != -1) {
             if (checkItemPosition == position) {
-                viewHolder.mText.setTextColor(context.getResources().getColor(R.color.drop_down_selected));
+                viewHolder.mText.setTextColor(context.getResources().getColor(R.color.colorPrimary));
                 viewHolder.mText.setBackgroundResource(R.color.check_bg);
             } else {
                 viewHolder.mText.setTextColor(context.getResources().getColor(R.color.drop_down_unselected));

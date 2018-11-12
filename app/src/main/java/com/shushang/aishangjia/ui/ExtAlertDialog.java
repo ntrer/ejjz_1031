@@ -213,6 +213,49 @@ public class ExtAlertDialog {
     }
 
 
+    public static void showSureDlg2(Context context, String title, String msg, String btnTxt, boolean isCancelable, final IExtDlgClick onclickListener) {
+        final AlertDialog dlg = new AlertDialog.Builder(context).create();
+        dlg.show();
+        dlg.setContentView(R.layout.ext_cancel_sure_dialog2);
+        dlg.getWindow().setBackgroundDrawableResource(
+                android.R.color.transparent);
+        View titleLayout = dlg.findViewById(R.id.title_layout);
+        TextView titleTxt = (TextView) dlg.findViewById(R.id.ext_dialog_title);
+        if (TextUtils.isEmpty(title))
+            titleLayout.setVisibility(View.GONE);
+        else
+            titleTxt.setText(title);
+        TextView contentTxt = (TextView) dlg
+                .findViewById(R.id.ext_dialog_content);
+        Button btn = (Button) dlg.findViewById(R.id.ext_dialog_btn);
+        contentTxt.setText(msg);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onclickListener != null)
+                    onclickListener.Oclick(0);
+                dlg.dismiss();
+            }
+        });
+
+        Button sureBnt = (Button) dlg.findViewById(R.id.sure);
+        if (!TextUtils.isEmpty(btnTxt))
+            sureBnt.setText(btnTxt);
+
+        sureBnt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onclickListener != null)
+                    onclickListener.Oclick(1);
+                dlg.dismiss();
+            }
+        });
+        dlg.setCancelable(isCancelable);
+        dlg.setCancelable(false);
+    }
+
+
+
 
     public static void showEditDlg(Context context, String title,String btnTxt, boolean isCancelable, final IExtDlgClick2 onclickListener) {
         final AlertDialog dlg = new AlertDialog.Builder(context).create();
@@ -397,6 +440,18 @@ public class ExtAlertDialog {
     public static Dialog createModifyPasswordOkDialog2(final Context context) {
         final Dialog dialog = new Dialog(context, R.style.dialog);
         dialog.setContentView(R.layout.dialog_modify_password_ok2);
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams lp = window.getAttributes();
+        int width = AppContext.getInstance().getDisplayWidth();
+        lp.width = (int) (0.5 * width);
+        lp.height = (int) (0.5 * width * 71 / 179);
+
+        return dialog;
+    }
+
+    public static Dialog createModifyPasswordOkDialog3(final Context context) {
+        final Dialog dialog = new Dialog(context, R.style.dialog);
+        dialog.setContentView(R.layout.dialog_modify_password_ok3);
         Window window = dialog.getWindow();
         WindowManager.LayoutParams lp = window.getAttributes();
         int width = AppContext.getInstance().getDisplayWidth();

@@ -27,6 +27,7 @@ import com.shushang.aishangjia.base.BaseActivity;
 import com.shushang.aishangjia.base.BaseUrl;
 import com.shushang.aishangjia.ui.ExtAlertDialog;
 import com.shushang.aishangjia.ui.GenderDialog;
+import com.shushang.aishangjia.ui.dialog.ActionSheetDialog;
 import com.shushang.aishangjia.utils.Json.JSONUtil;
 import com.shushang.aishangjia.utils.OkhttpUtils.CallBackUtil;
 import com.shushang.aishangjia.utils.OkhttpUtils.OkhttpUtil;
@@ -211,8 +212,25 @@ public class AppPeopleActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_customer_gender://客户性别
-                if (!mGenderDialog.isShowing())
-                    mGenderDialog.show();
+                new ActionSheetDialog(AppPeopleActivity.this)
+                        .builder()
+                        .setCancelable(false)
+                        .setCanceledOnTouchOutside(true)
+                        .addSheetItem("男", ActionSheetDialog.SheetItemColor.Blue,
+                                new ActionSheetDialog.OnSheetItemClickListener() {
+                                    @Override
+                                    public void onClick(int which) {
+                                        mTvCustomerGender.setText("男");
+                                    }
+                                })
+                        .addSheetItem("女", ActionSheetDialog.SheetItemColor.Blue,
+                                new ActionSheetDialog.OnSheetItemClickListener() {
+                                    @Override
+                                    public void onClick(int which) {
+                                        mTvCustomerGender.setText("女");
+                                    }
+                                })
+                        .show();
                 break;
             case R.id.tv_customer_address:
                 startActivityForResult(new Intent(this, CityActivity.class), REQUEST_CODE_CITY);

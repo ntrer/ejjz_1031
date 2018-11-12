@@ -42,6 +42,15 @@
                 android:visibility="gone"
                 />
 
+            <ImageView
+                android:id="@+id/getPaper2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/yishiyong"
+                android:visibility="gone"
+                />
+
             <TextView
                 android:id="@+id/people"
                 android:layout_width="wrap_content"

@@ -42,6 +42,7 @@
 
             <!--姓名-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -79,6 +80,7 @@
             <View style="@style/activity_register_v_horizontal_divider"/>
             <!--手机号-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -120,6 +122,7 @@
 
             <!--性别-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -155,6 +158,7 @@
 
             <!--来源-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -191,6 +195,7 @@
 
             <!--小区名称-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -231,6 +236,7 @@
 
             <!--销售线索详情-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
             <LinearLayout
@@ -269,6 +275,7 @@
             <View style="@style/activity_register_v_horizontal_divider"/>
             <!--本次沟通时间-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -298,6 +305,7 @@
 
             <!--本次线索意向-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -335,47 +343,48 @@
             <View style="@style/activity_register_v_horizontal_divider"/>
 
             <!--本次备注信息-->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_48">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/dp_48">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_48"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/dp_48"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
-                        style="@style/activity_customer_create_tv_style"
-                        android:text="@string/now_beizhu"/>
+                    <!--<TextView-->
+                        <!--style="@style/activity_customer_create_tv_style"-->
+                        <!--android:text="@string/now_beizhu"/>-->
 
-                    <TextView
-                        android:id="@+id/now_beizhu"
-                        style="@style/activity_customer_create_et_style"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:maxEms="10"
-                        android:hint="@string/must_fill_in"/>
+                    <!--<TextView-->
+                        <!--android:id="@+id/now_beizhu"-->
+                        <!--style="@style/activity_customer_create_et_style"-->
+                        <!--android:ellipsize="end"-->
+                        <!--android:maxLines="1"-->
+                        <!--android:maxEms="10"-->
+                        <!--android:hint="@string/must_fill_in"/>-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/dp_24"
-                    android:text="@string/must_fill_in_sign"
-                    android:textColor="@color/red"
-                    android:textSize="@dimen/sp_14"/>
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginLeft="@dimen/dp_24"-->
+                    <!--android:text="@string/must_fill_in_sign"-->
+                    <!--android:textColor="@color/red"-->
+                    <!--android:textSize="@dimen/sp_14"/>-->
 
-            </RelativeLayout>
+            <!--</RelativeLayout>-->
 
-            <View style="@style/activity_register_v_horizontal_divider"/>
+            <!--<View style="@style/activity_register_v_horizontal_divider"/>-->
 
 
             <!--下次沟通时间-->
             <RelativeLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 

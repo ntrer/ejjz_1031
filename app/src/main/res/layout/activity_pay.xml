@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5f5f5"
+   >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@android:color/white"
+        android:theme="@style/ToolBarStyle"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="下单"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            />
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_total"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单总价:￥"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/total_price_text"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/line_border4"
+        android:layout_margin="@dimen/dp_8"
+        android:layout_below="@id/ll_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:background="@drawable/line_border2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/customer_name" />
+
+                <com.shushang.aishangjia.ui.SLEditTextView
+                    android:id="@+id/et_customer_name"
+                    style="@style/activity_customer_create_et_style"
+                    android:drawablePadding="@dimen/dp_48"
+                    android:hint="@string/must_fill_in"
+                    android:imeOptions="actionNext"
+                    android:maxLength="25" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/Phone" />
+
+                <com.shushang.aishangjia.ui.SLEditTextView
+                    android:id="@+id/et_customer_phone"
+                    style="@style/activity_customer_create_et_style"
+                    android:drawablePadding="@dimen/dp_48"
+                    android:hint="@string/must_fill_in"
+                    android:inputType="phone"
+                    android:imeOptions="actionNext"
+                    android:maxLength="25" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <View style="@style/activity_register_v_horizontal_divider" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_dingjin"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:background="@drawable/register_btn_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_30"
+                    android:textColor="@color/color_w"
+                    android:text="使用订金"
+                    />
+
+                <TextView
+                    android:id="@+id/et_customer_dikou"
+                    style="@style/activity_customer_create_et_style"
+                    android:layout_marginRight="@dimen/dp_2"
+                    android:drawablePadding="@dimen/dp_48"
+                    android:text="订金抵扣:￥"
+                   />
+
+                <TextView
+                    android:id="@+id/et_customer_dikou_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#1A1A1A"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <View style="@style/activity_register_v_horizontal_divider" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/et_customer_realget"
+                    style="@style/activity_customer_create_et_style"
+                    android:drawablePadding="@dimen/dp_48"
+                    android:text="应收:￥"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/et_customer_realget_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <View style="@style/activity_register_v_horizontal_divider" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/shishou" />
+
+                <com.shushang.aishangjia.ui.SLEditTextView
+                    android:id="@+id/et_customer_activieget"
+                    style="@style/activity_customer_create_et_style"
+                    android:drawablePadding="@dimen/dp_48"
+                    android:hint="输入实收金额"
+                    android:inputType="number|numberDecimal"
+                     />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="@drawable/line_border3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/beizhu" />
+
+                <com.shushang.aishangjia.ui.SLEditTextView
+                    android:id="@+id/et_customer_beizhu"
+                    style="@style/activity_customer_create_et_style"
+                    android:drawablePadding="@dimen/dp_48"
+                    android:hint="输入备注"
+                    android:inputType="text"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_edit2"
+            android:orientation="horizontal"
+            android:background="@drawable/register_btn_bg_selector"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <TextView
+                android:layout_marginLeft="@dimen/dp_5"
+                android:text="提交订单"
+                android:textColor="@color/color_w"
+                android:textSize="@dimen/sp_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

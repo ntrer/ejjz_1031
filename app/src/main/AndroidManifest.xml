@@ -254,13 +254,53 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar2">
         </activity>
-        <activity android:name=".activity.ProvePeopleActivity"
+        <activity
+            android:name=".activity.ProvePeopleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2">
+        </activity>
+        <activity android:name=".MainActivity3">
+        </activity>
+        <activity
+            android:name=".activity.UpdateXiansuoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".activity.DingDanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2">
+        </activity>
+        <activity
+            android:name=".activity.GoodsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2">
+        </activity>
+        <activity
+            android:name=".activity.PayActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme.NoActionBar2">
+        </activity>
+        <activity android:name=".activity.DingJinActivity"
                   android:screenOrientation="portrait"
                   android:theme="@style/AppTheme.NoActionBar2"
             >
         </activity>
-        <activity android:name=".MainActivity3">
+
+        <activity
+            android:name=".activity.GoodsActivity2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2">
         </activity>
+
+        <activity android:name=".activity.DingDanActivity2"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/AppTheme.NoActionBar2"
+            >
+        </activity>
+
     </application>
 
 </manifest>

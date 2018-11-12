@@ -43,6 +43,7 @@
     <string name="must_fill_in">填写</string>
     <string name="please_input">请输入</string>
     <string name="submit">提交中...</string>
+    <string name="request">请求中...</string>
     <string name="male">女</string>
     <string name="female">男</string>
     <string name="activity">切换活动</string>
@@ -95,5 +96,12 @@
     <string name="fill_beizhu">请填写备注(限14字)</string>
     <string name="getData">请求中...</string>
     <string name="action_success">操作成功</string>
+    <string name="sex">性别</string>
+    <string name="address">地址</string>
+    <string name="source">来源</string>
+    <string name="xiansuo_detail">线索详情</string>
+    <string name="fuzeren">负责人</string>
+    <string name="beizhu">备注</string>
+    <string name="shishou">实收</string>
 </resources>
 

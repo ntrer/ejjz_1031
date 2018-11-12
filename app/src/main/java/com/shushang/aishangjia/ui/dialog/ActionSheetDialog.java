@@ -117,7 +117,7 @@ public class ActionSheetDialog {
 
 		// TODO 高度控制，非最佳解决办法
 		// 添加条目过多的时候控制高度
-		if (size >= 7) {
+		if (size >= 9) {
 			LayoutParams params = (LayoutParams) sLayout_content
 					.getLayoutParams();
 			params.height = display.getHeight() / 2;

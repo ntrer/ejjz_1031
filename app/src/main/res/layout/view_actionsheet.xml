@@ -17,8 +17,8 @@
         android:paddingBottom="10dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:textColor="@color/actionsheet_gray"
-        android:textSize="13sp"
+        android:textColor="#037BFF"
+        android:textSize="@dimen/sp_14"
         android:visibility="gone" />
 
     <ScrollView
@@ -27,7 +27,6 @@
         android:layout_height="wrap_content"
         android:fadingEdge="none"
          >
-
         <LinearLayout
             android:id="@+id/lLayout_content"
             android:layout_width="match_parent"

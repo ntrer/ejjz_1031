@@ -1,16 +1,13 @@
 package com.shushang.aishangjia.fragment.YiXiangJinFragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,12 +20,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.shushang.aishangjia.Bean.MoneyPeople;
 import com.shushang.aishangjia.Bean.YiXiangJin;
 import com.shushang.aishangjia.R;
-import com.shushang.aishangjia.activity.AppPeopleActivity;
-import com.shushang.aishangjia.activity.DailyOrderActivity;
 import com.shushang.aishangjia.activity.LoginActivity2;
-import com.shushang.aishangjia.activity.ProActivityActivity2;
-import com.shushang.aishangjia.activity.SignActivity;
-import com.shushang.aishangjia.activity.XiansuoActivity;
 import com.shushang.aishangjia.application.MyApplication;
 import com.shushang.aishangjia.base.BaseFragment;
 import com.shushang.aishangjia.base.BaseUrl;
@@ -39,9 +31,6 @@ import com.shushang.aishangjia.net.RestClient;
 import com.shushang.aishangjia.net.callback.IError;
 import com.shushang.aishangjia.net.callback.IFailure;
 import com.shushang.aishangjia.net.callback.ISuccess;
-import com.shushang.aishangjia.ui.MyFab.FabAlphaAnimate;
-import com.shushang.aishangjia.ui.MyFab.FabAttributes;
-import com.shushang.aishangjia.ui.MyFab.OnFabClickListener;
 import com.shushang.aishangjia.ui.MyFab.SuspensionFab;
 import com.shushang.aishangjia.ui.SwipeItemLayout;
 import com.shushang.aishangjia.utils.Json.JSONUtil;
@@ -58,8 +47,8 @@ import java.util.List;
  * Created by YD on 2018/9/18.
  */
 
-public class YiXiangJinFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener, OnFabClickListener {
-    private Toolbar mToolbar;
+public class YiXiangJinFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener{
+//    private Toolbar mToolbar;
     private RecyclerView mRecyclerView,mSignPeopleRecyclerView,mRecyclerView2;
     private SwipeRefreshLayout mSwipeRefreshLayout=null;
     private TextView mTextView;
@@ -100,66 +89,76 @@ public class YiXiangJinFragment extends BaseFragment implements SwipeRefreshLayo
     });
 
 
+    public YiXiangJinFragment() {
+        // Required empty public constructor
+    }
+
+    public static YiXiangJinFragment newInstance() {
+        return new YiXiangJinFragment();
+    }
+
+
+
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        mRecyclerView=rootView.findViewById(R.id.rl_tab);
+//        mRecyclerView=rootView.findViewById(R.id.rl_tab);
         mSignPeopleRecyclerView=rootView.findViewById(R.id.rv_sign);
         mSwipeRefreshLayout=rootView.findViewById(R.id.srl_home);
-        mToolbar=rootView.findViewById(R.id.toolbar);
-        fabTop= rootView.findViewById(R.id.fab_top);
+//        mToolbar=rootView.findViewById(R.id.toolbar);
+//        fabTop= rootView.findViewById(R.id.fab_top);
         llnodata=rootView.findViewById(R.id.ll_no_data);
         mLoading=rootView.findViewById(R.id.loading);
-        mImageView=rootView.findViewById(R.id.more);
+//        mImageView=rootView.findViewById(R.id.more);
         mSwipeRefreshLayout.setOnRefreshListener(this);
-        mToolbar.setTitle("");
+//        mToolbar.setTitle("");
         getData();
-        FabAttributes collection = new FabAttributes.Builder()
-                .setBackgroundTint(Color.parseColor("#2096F3"))
-                .setSrc(getResources().getDrawable(R.mipmap.note))
-                .setFabSize(FloatingActionButton.SIZE_MINI)
-                .setPressedTranslationZ(10)
-                .setTag(1)
-                .build();
-
-        FabAttributes xiansuo = new FabAttributes.Builder()
-                .setBackgroundTint(Color.parseColor("#2096F3"))
-                .setSrc(getResources().getDrawable(R.mipmap.xiansuo))
-                .setFabSize(FloatingActionButton.SIZE_MINI)
-                .setPressedTranslationZ(10)
-                .setTag(3)
-                .build();
-
-        FabAttributes email = new FabAttributes.Builder()
-                .setBackgroundTint(Color.parseColor("#2096F3"))
-                .setSrc(getResources().getDrawable(R.mipmap.people_add))
-                .setFabSize(FloatingActionButton.SIZE_MINI)
-                .setPressedTranslationZ(10)
-                .setTag(2)
-                .build();
-
-        FabAttributes email2 = new FabAttributes.Builder()
-                .setBackgroundTint(Color.parseColor("#2096F3"))
-                .setSrc(getResources().getDrawable(R.mipmap.money_activity))
-                .setFabSize(FloatingActionButton.SIZE_MINI)
-                .setPressedTranslationZ(10)
-                .setTag(4)
-                .build();
-
-        FabAttributes email3 = new FabAttributes.Builder()
-                .setBackgroundTint(Color.parseColor("#2096F3"))
-                .setSrc(getResources().getDrawable(R.mipmap.money_4_coloring))
-                .setFabSize(FloatingActionButton.SIZE_MINI)
-                .setPressedTranslationZ(10)
-                .setTag(5)
-                .build();
-        if(resourceName!=null&&resourceName.equals("1116")){
-            fabTop.addFab(collection,xiansuo,email,email2,email3);
-        }
-        else {
-            fabTop.addFab(collection,email,email2,email3);
-        }
-        fabTop.setAnimationManager(new FabAlphaAnimate(fabTop));
-        fabTop.setFabClickListener(this);
+//        FabAttributes collection = new FabAttributes.Builder()
+//                .setBackgroundTint(Color.parseColor("#2096F3"))
+//                .setSrc(getResources().getDrawable(R.mipmap.note))
+//                .setFabSize(FloatingActionButton.SIZE_MINI)
+//                .setPressedTranslationZ(10)
+//                .setTag(1)
+//                .build();
+//
+//        FabAttributes xiansuo = new FabAttributes.Builder()
+//                .setBackgroundTint(Color.parseColor("#2096F3"))
+//                .setSrc(getResources().getDrawable(R.mipmap.xiansuo))
+//                .setFabSize(FloatingActionButton.SIZE_MINI)
+//                .setPressedTranslationZ(10)
+//                .setTag(3)
+//                .build();
+//
+//        FabAttributes email = new FabAttributes.Builder()
+//                .setBackgroundTint(Color.parseColor("#2096F3"))
+//                .setSrc(getResources().getDrawable(R.mipmap.people_add))
+//                .setFabSize(FloatingActionButton.SIZE_MINI)
+//                .setPressedTranslationZ(10)
+//                .setTag(2)
+//                .build();
+//
+//        FabAttributes email2 = new FabAttributes.Builder()
+//                .setBackgroundTint(Color.parseColor("#2096F3"))
+//                .setSrc(getResources().getDrawable(R.mipmap.money_activity))
+//                .setFabSize(FloatingActionButton.SIZE_MINI)
+//                .setPressedTranslationZ(10)
+//                .setTag(4)
+//                .build();
+//
+//        FabAttributes email3 = new FabAttributes.Builder()
+//                .setBackgroundTint(Color.parseColor("#2096F3"))
+//                .setSrc(getResources().getDrawable(R.mipmap.money_4_coloring))
+//                .setFabSize(FloatingActionButton.SIZE_MINI)
+//                .setPressedTranslationZ(10)
+//                .setTag(5)
+//                .build();
+//        if(resourceName!=null&&resourceName.equals("1116")){
+//            fabTop.addFab(collection,xiansuo,email,email2,email3);
+//        }
+//        else {
+//            fabTop.addFab(collection,email,email2,email3);
+//        }
+//        fabTop.setAnimationManager(new FabAlphaAnimate(fabTop));
+//        fabTop.setFabClickListener(this);
         EventBus.getDefault().register(this);
     }
 
@@ -344,57 +343,57 @@ public class YiXiangJinFragment extends BaseFragment implements SwipeRefreshLayo
 
 
 
-    @Override
-    public void onFabClick(FloatingActionButton fab, Object tag) {
-        if (tag.equals(1)) {
-            fabHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    fabTop.closeAnimate();
-                }
-            },1000);
-            startActivityForResult(new Intent(getActivity(), SignActivity.class),REQUEST_CODE_SIGN);
-        }else if (tag.equals(2)){
-            fabHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    fabTop.closeAnimate();
-                }
-            },1000);
-            startActivityForResult(new Intent(getActivity(), AppPeopleActivity.class),REQUEST_CODE_ADD);
-        }
-        else if (tag.equals(3)){
-            fabHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    fabTop.closeAnimate();
-                }
-            },1000);
-            startActivityForResult(new Intent(getActivity(), XiansuoActivity.class),REQUEST_CODE_ADD);
-        }
-        else if (tag.equals(4)){
-            fabHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    fabTop.closeAnimate();
-                }
-            },1000);
-            //表示所有权限都授权了
-            Intent openCameraIntent = new Intent(getActivity(), ProActivityActivity2.class);
-            openCameraIntent.putExtra("type", "3");
-            openCameraIntent.putExtra("event","7");
-            startActivityForResult(openCameraIntent, REQUEST_CODE_ACTIVITY );
-        }
-        else if (tag.equals(5)){
-            fabHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    fabTop.closeAnimate();
-                }
-            },1000);
-            startActivityForResult(new Intent(getActivity(), DailyOrderActivity.class),REQUEST_CODE_DAILY);
-        }
-    }
+//    @Override
+//    public void onFabClick(FloatingActionButton fab, Object tag) {
+//        if (tag.equals(1)) {
+//            fabHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    fabTop.closeAnimate();
+//                }
+//            },1000);
+//            startActivityForResult(new Intent(getActivity(), SignActivity.class),REQUEST_CODE_SIGN);
+//        }else if (tag.equals(2)){
+//            fabHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    fabTop.closeAnimate();
+//                }
+//            },1000);
+//            startActivityForResult(new Intent(getActivity(), AppPeopleActivity.class),REQUEST_CODE_ADD);
+//        }
+//        else if (tag.equals(3)){
+//            fabHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    fabTop.closeAnimate();
+//                }
+//            },1000);
+//            startActivityForResult(new Intent(getActivity(), XiansuoActivity.class),REQUEST_CODE_ADD);
+//        }
+//        else if (tag.equals(4)){
+//            fabHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    fabTop.closeAnimate();
+//                }
+//            },1000);
+//            //表示所有权限都授权了
+//            Intent openCameraIntent = new Intent(getActivity(), ProActivityActivity2.class);
+//            openCameraIntent.putExtra("type", "3");
+//            openCameraIntent.putExtra("event","7");
+//            startActivityForResult(openCameraIntent, REQUEST_CODE_ACTIVITY );
+//        }
+//        else if (tag.equals(5)){
+//            fabHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    fabTop.closeAnimate();
+//                }
+//            },1000);
+//            startActivityForResult(new Intent(getActivity(), DailyOrderActivity.class),REQUEST_CODE_DAILY);
+//        }
+//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

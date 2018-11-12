@@ -139,7 +139,6 @@ public class GongGaoActivity extends BaseActivity implements SwipeRefreshLayout.
                                 }
                             }
                             catch (Exception e){
-
                                 Toast.makeText(GongGaoActivity.this, ""+e, Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -148,14 +147,12 @@ public class GongGaoActivity extends BaseActivity implements SwipeRefreshLayout.
                 .failure(new IFailure() {
                     @Override
                     public void onFailure() {
-
                         mSrlGonggao.setRefreshing(false);
                         Toast.makeText(GongGaoActivity.this, "获取数据错误了！！！！", Toast.LENGTH_SHORT).show();
                     }
                 }).error(new IError() {
             @Override
             public void onError(int code, String msg) {
-
                 mSrlGonggao.setRefreshing(false);
                 Toast.makeText(GongGaoActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
             }

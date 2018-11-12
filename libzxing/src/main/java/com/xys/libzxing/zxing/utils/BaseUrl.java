@@ -3,7 +3,6 @@ package com.xys.libzxing.zxing.utils;
 public class BaseUrl {
 
 
-
         public final static String BASE_URL="http://ejjz.shushangsoft.com/";
 
 

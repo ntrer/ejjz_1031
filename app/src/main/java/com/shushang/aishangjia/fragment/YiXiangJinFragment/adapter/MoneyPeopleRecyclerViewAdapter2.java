@@ -51,10 +51,19 @@ public class MoneyPeopleRecyclerViewAdapter2 extends BaseQuickAdapter<YiXiangJin
 
         if(item.getStatus().equals("0")){
             helper.getView(R.id.getPaper).setVisibility(View.GONE);
+            helper.getView(R.id.getPaper2).setVisibility(View.GONE);
         }
-        else {
+        else if(item.getStatus().equals("100")||item.getStatus().equals("-300")){
+            helper.getView(R.id.getPaper2).setVisibility(View.VISIBLE);
+            helper.getView(R.id.getPaper).setVisibility(View.GONE);
+        }
+        else if(item.getStatus().equals("-200")){
+            helper.getView(R.id.getPaper2).setVisibility(View.GONE);
             helper.getView(R.id.getPaper).setVisibility(View.VISIBLE);
         }
+
+
+
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date=new Date(item.getCjsj());
@@ -95,6 +104,9 @@ public class MoneyPeopleRecyclerViewAdapter2 extends BaseQuickAdapter<YiXiangJin
                                 })
                                 .build()
                                 .get();
+                    }
+                    else if(item.getStatus().equals("100")||item.getStatus().equals("-300")){
+                        ToastUtils.showLong("您已使用此订金");
                     }
                     else {
                         ToastUtils.showLong("您已退过此单");
